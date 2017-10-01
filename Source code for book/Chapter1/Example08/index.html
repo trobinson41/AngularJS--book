@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html ng-app="bugApp">
+<head>
+	<meta charset="utf-8" />
+	<title>Buggy Example 8</title>
+	<script src="http://code.angularjs.org/1.2.14/angular.js"></script>
+	<script type="text/javascript" src="bugList.js"></script>
+</head>
+<body ng-controller="BugController">
+	<div>
+		<input type="button" ng-click="goToLookUp()" value="Look up a bug">&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" ng-click="goToCatalog()" value="Catalog">&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="button" ng-click="goToAdd()" value="Add a bug">
+	</div>
+	
+	<!-- PICK A BUG page -->
+	<div ng-show="currentPage == 'Lookup'">
+		<h1>Pick a bug. Any bug...</h1>
+		<select ng-model="selectedBug"
+		ng-options="bug as bug.CommonName for bug in bugArray">
+			<option value=""></option>
+		</select>
+		<div ng-show="selectedBug">
+			<h3>You selected: {{ selectedBug.CommonName }}</h3>
+			Class: {{ selectedBug.Class }} <br/>
+			Order: {{ selectedBug.Order }} <br/>
+			Family: {{ selectedBug.Family }} <br/>
+			Genus: {{ selectedBug.Genus }} <br/>
+			Species: {{ selectedBug.Species }} <br/><br/>
+			{{ selectedBug.Description }} <br/>
+			<img ng-src="{{ getFilename(selectedBug.Filename) }}" />
+		</div>
+	</div>
+	<!-- END -->
+	
+	<!-- CATALOG page -->
+ 	<div ng-show="currentPage == 'Catalog'">
+		<br/>
+		<span ng-repeat="item in bugArray">
+			<bug-entry a-bug="item" display-bug="displayBug(item.CommonName)" get-filename="getFilename(item.Filename)"></bug-entry>
+		</span>
+	</div>
+	<!-- END -->
+	
+	<!-- BUG VIEWER page -->
+	<div ng-show="currentPage == 'BugViewer'">
+		<h3>You selected: {{ selectedBug.CommonName }}</h3>
+		Class: {{ selectedBug.Class }} <br/>
+		Order: {{ selectedBug.Order }} <br/>
+		Family: {{ selectedBug.Family }} <br/>
+		Genus: {{ selectedBug.Genus }} <br/>
+		Species: {{ selectedBug.Species }} <br/><br/>
+		{{ selectedBug.Description }} <br/>
+		<img ng-src="{{ getFilename(selectedBug.Filename) }}" />
+	</div>
+	<!-- END -->
+	
+	<!-- ADD A BUG page -->
+	<div ng-show="currentPage == 'AddBug'">
+		<h1>Add A Bug</h1>
+		<label>Common Name:</label>
+		<input type="text" placeholder="Please enter the common name" ng-model="commonName2"><br/>
+		<label>Class:</label>
+		<input type="text" placeholder="Please enter the class" ng-model="className2"><br/>
+		<label>Order:</label>
+		<input type="text" placeholder="Please enter the order" ng-model="orderName2"><br/>
+		<label>Family:</label>
+		<input type="text" placeholder="Please enter the family" ng-model="familyName2"><br/>
+		<label>Genus:</label>
+		<input type="text" placeholder="Please enter the genus" ng-model="genusName2"><br/>
+		<label>Species:</label>
+		<input type="text" placeholder="Please enter the species" ng-model="speciesName2"><br/>
+		<label>Description:</label>
+		<input type="text" placeholder="Please enter a description" ng-model="description2"><br/><br/>
+		<label>Filename:</label>
+		<input type="text" placeholder="Please enter a filename for the image" ng-model="filename2"><br/><br/>
+		<input type="button" ng-click="addTheBug()" value="Add it to the list">
+	</div>
+	<!-- END -->
+	
+	<script>
+		angular.module('bugApp', [])
+			.controller('BugController', function ($scope, $window) {
+
+				$scope.currentPage = "Lookup";
+								
+				$scope.goToLookUp = function() {
+					$scope.currentPage = "Lookup";
+				};
+				
+				$scope.goToCatalog = function() {
+					$scope.currentPage = "Catalog";
+				}
+				
+				$scope.goToAdd = function() {
+					$scope.currentPage = "AddBug";
+				}
+				
+				$scope.bugArray = bugs;	// from bugList.js
+				
+				$scope.addTheBug = function() {
+				
+					$scope.bugArray.push(
+						{
+							CommonName: $scope.commonName2,
+							Class: $scope.className2,
+							Order: $scope.orderName2,
+							Family: $scope.familyName2,
+							Genus: $scope.genusName2,
+							Species: $scope.speciesName2,
+							Description: $scope.description2,
+							Filename: $scope.filename2
+						}
+					);
+					$window.alert("You added a bug!");
+				};
+				
+				// Search bugArray for the bug with CommonName equal to name
+				$scope.getBug = function(name) {
+					for (i in $scope.bugArray){
+						if (name == $scope.bugArray[i].CommonName)
+							return $scope.bugArray[i];
+					}
+				};
+				
+				$scope.displayBug = function(name) {
+					$scope.selectedBug = $scope.getBug(name);
+					$scope.currentPage = "BugViewer";
+				}
+				
+				$scope.getFilename = function(filename) {
+					if (filename) {
+						return "images/" + filename + ".jpg";
+					} else {
+						return '';
+					}
+				}
+			})
+			.directive('bugEntry', function() {
+				return {
+					restrict: 'E',
+					templateUrl: 'bug.html',
+					scope: {
+						bug: "=aBug",
+						displayBug: '&displayBug',
+						getFilename: '&getFilename'
+					},
+				};
+			});
+	</script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="utf-8" />
+	<title>Buggy Example 2</title>
+	<script src="http://code.angularjs.org/1.2.14/angular.js"></script>
+</head>
+<body ng-controller="BugController">
+	<h1>Pick a bug. Any bug...</h1>
+	<select ng-model="selectedName" ng-change="setBug()">
+		<option></option>
+		<option>Jerusalem Cricket</option>
+		<option>Tropical House Cricket</option>
+		<option>Scorpion</option>
+		<option>Oleander Aphid</option>
+	</select>
+	<div ng-show="selectedName">
+		<h3>You selected: {{ selectedBug.CommonName }}</h3>
+		Class: {{ selectedBug.Class }} <br/>
+		Order: {{ selectedBug.Order }} <br/>
+		Family: {{ selectedBug.Family }} <br/>
+		Genus: {{ selectedBug.Genus }} <br/>
+		Species: {{ selectedBug.Species }} <br/><br/>
+		{{ selectedBug.Description }} <br/>
+		<img ng-src="{{ getFilename(selectedBug.Filename) }}"></img>
+	</div>
+	<script>
+		function BugController($scope) {
+		
+			$scope.bugArray = [
+				{
+					CommonName: "Jerusalem Cricket",
+					Class: "Insecta",
+					Order: "Orthoptera",
+					Family: "Stenopelmatidae",
+					Genus: "Stenopelmatus",
+					Species: "",
+					Description: "These odd-looking insects are not \"true crickets\", because they aren't in the family Gryllidae. They are in the same order as crickets and grasshoppers, though. They're found in the western U.S. and Mexico.",
+					Filename: "Jerusalem cricket"
+				},
+				{
+					CommonName: "Tropical House Cricket",
+					Class: "Insecta",
+					Order: "Orthoptera",
+					Family: "Gryllidae",
+					Genus: "Gryllodes",
+					Species: "sigillatus",
+					Description: "I'm showing you the rear end of this cricket, because I wanted you to see the ovipositor. That's the long, thin rod that looks remarkably like a hyperdermic needle. The cricket uses it to lay eggs. It inserts the ovipositor into soil and literally injects an egg. Many, but not all, insects have ovipositors and they come in many different varieties. Some have even been modified to form stingers and are no longer used for laying egss. (The eggs come out of different opening.)",
+					Filename: "Tropical House Cricket - Gryllodes sigillatus"
+				},
+				{
+					CommonName: "Scorpion",
+					Class: "Arachnida",
+					Order: "Scorpiones",
+					Family: "",
+					Genus: "",
+					Species: "",
+					Description: "A scorpion's stinger is in its tail (which is why that's what I'm holding it by.)",
+					Filename: "Scorpion"
+				},
+				{
+					CommonName: "Oleander Aphid",
+					Class: "Insecta",
+					Order: "Hemiptera",
+					Family: "Aphididae",
+					Genus: "Aphis",
+					Species: "nerii",
+					Description: "Aphids feed on the sap of plants. They excrete a sugary liquid called honeydew, which is consumed by many other insects, especially ants. When an aphid sticks its sucking mouthparts into a plant, the pressure of the sap literally forces the honeydew out of the aphid's anus. (See? I told you these example programs were going to be educational!)",
+					Filename: "Oleander Aphid"
+				}
+			];
+				
+			// Search bugArray for the bug with CommonName equal to name
+			$scope.getBug = function(name) {
+				for (i in $scope.bugArray){
+					if (name == $scope.bugArray[i].CommonName)
+						return $scope.bugArray[i];
+				}
+			};
+			
+			$scope.setBug = function() {
+				$scope.selectedBug = $scope.getBug($scope.selectedName);
+			};
+			
+			$scope.getFilename = function(filename) {
+				if (filename) {
+					return "images/" + filename + ".jpg";
+				} else {
+					return '';
+				}
+			}
+		}
+	</script>
+</body>
+</html>

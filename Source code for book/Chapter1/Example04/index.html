@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="bugApp">
+<head>
+	<meta charset="utf-8" />
+	<title>Buggy Example 4</title>
+	<script src="http://code.angularjs.org/1.2.14/angular.js"></script>
+	<script type="text/javascript" src="bugList.js"></script>
+</head>
+<body ng-controller="BugController">
+	<h1>Pick a bug. Any bug...</h1>
+	<select ng-model="selectedName" ng-change="setBug()">
+		<option></option>
+		<option>Hentz Orbweaver</option>
+		<option>Woodlouse</option>
+		<option>Bristletail</option>
+		<option>Antlion</option>
+	</select>
+	<div ng-show="selectedName">
+		<h3>You selected: {{ selectedBug.CommonName }}</h3>
+		Class: {{ selectedBug.Class }} <br/>
+		Order: {{ selectedBug.Order }} <br/>
+		Family: {{ selectedBug.Family }} <br/>
+		Genus: {{ selectedBug.Genus }} <br/>
+		Species: {{ selectedBug.Species }} <br/><br/>
+		{{ selectedBug.Description }} <br/>
+		<img ng-src="{{ getFilename(selectedBug.Filename) }}" />
+	</div>
+	<script>
+		angular.module('bugApp', [])
+			.controller('BugController', function ($scope) {
+
+				$scope.bugArray = bugs;	// from bugList.js
+
+				// Search bugArray for the bug with CommonName equal to name
+				$scope.getBug = function(name) {
+					for (i in $scope.bugArray){
+						if (name == $scope.bugArray[i].CommonName)
+							return $scope.bugArray[i];
+					}
+				};
+				
+				$scope.setBug = function() {
+					$scope.selectedBug = $scope.getBug($scope.selectedName);
+				};
+				
+				$scope.getFilename = function(filename) {
+					if (filename) {
+						return "images/" + filename + ".jpg";
+					} else {
+						return '';
+					}
+				}
+			});
+	</script>
+</body>
+</html>
