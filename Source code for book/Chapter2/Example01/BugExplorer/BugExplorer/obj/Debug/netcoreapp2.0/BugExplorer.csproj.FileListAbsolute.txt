@@ -1,0 +1,11 @@
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\bin\Debug\netcoreapp2.0\BugExplorer.deps.json
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\bin\Debug\netcoreapp2.0\BugExplorer.runtimeconfig.json
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\bin\Debug\netcoreapp2.0\BugExplorer.runtimeconfig.dev.json
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\bin\Debug\netcoreapp2.0\BugExplorer.dll
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\bin\Debug\netcoreapp2.0\BugExplorer.pdb
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\obj\Debug\netcoreapp2.0\BugExplorer.csprojResolveAssemblyReference.cache
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\obj\Debug\netcoreapp2.0\BugExplorer.csproj.CoreCompileInputs.cache
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\obj\Debug\netcoreapp2.0\BugExplorer.AssemblyInfoInputs.cache
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\obj\Debug\netcoreapp2.0\BugExplorer.AssemblyInfo.cs
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\obj\Debug\netcoreapp2.0\BugExplorer.dll
+C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example01\BugExplorer\BugExplorer\obj\Debug\netcoreapp2.0\BugExplorer.pdb

@@ -1,7 +1,15 @@
-﻿@section SPAViews {
-    @Html.Partial("_Home")
+﻿@{
+    ViewData["Title"] = "Home Page";
 }
-@section Scripts{
-    @Scripts.Render("~/bundles/knockout")
-    @Scripts.Render("~/bundles/app")
-}
+
+<div class="jumbotron">
+    <h1>Bug Explorer</h1>
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Welcome to Bug Explorer</h2>
+        <p>
+            Bug Explorer is an application that allows you to catalog and cross reference your many bug photos.
+        </p>
+    </div>
+</div>
