@@ -6,5 +6,7 @@
     templateUrl: 'bugDropdown.component.html'
 })
 export class BugDropdown {
-    imgSrc:string = "";
+    getImage(name: string): string {
+        return "/bugImages/" + name + ".jpg";
+    }
 }

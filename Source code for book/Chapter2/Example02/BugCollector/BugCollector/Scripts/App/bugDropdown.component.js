@@ -9,8 +9,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var BugDropdown = (function () {
     function BugDropdown() {
-        this.imgSrc = "";
     }
+    BugDropdown.prototype.getImage = function (name) {
+        return "/bugImages/" + name + ".jpg";
+    };
     return BugDropdown;
 }());
 BugDropdown = __decorate([

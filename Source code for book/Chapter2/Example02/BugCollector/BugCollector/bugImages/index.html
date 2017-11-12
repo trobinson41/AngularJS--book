@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="utf-8" />
+	<title>Buggy Example 1</title>
+	<script src="http://code.angularjs.org/1.2.14/angular.js"></script>
+</head>
+<body>
+	<h1>Pick a bug. Any bug...</h1>
+	<select ng-model="selectedName">
+		<option></option>
+		<option>Honey Bee</option>
+		<option>Cranefly</option>
+		<option>Scorpion</option>
+		<option>Pregnant Scorpion</option>
+	</select>
+	<div ng-show="selectedName">
+		<h3>You selected: {{ selectedName }}.</h3>
+		<img ng-src="images/{{ selectedName }}.jpg"></img>
+	</div>
+</body>
+</html>
