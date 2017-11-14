@@ -1,0 +1,19 @@
+<!-- PICK A BUG page -->
+<div>
+	<h1>Pick a bug. Any bug...</h1>
+	<select ng-model="selectedBug"
+	ng-options="bug as bug.CommonName for bug in bugArray" ng-click="setSelectedBug(selectedBug)">
+		<option value=""></option>
+	</select>
+	<div ng-show="selectedBug">
+		<h3>You selected: {{ selectedBug.CommonName }}</h3>
+		Class: {{ selectedBug.Class }} <br/>
+		Order: {{ selectedBug.Order }} <br/>
+		Family: {{ selectedBug.Family }} <br/>
+		Genus: {{ selectedBug.Genus }} <br/>
+		Species: {{ selectedBug.Species }} <br/><br/>
+		{{ selectedBug.Description }} <br/>
+		<img ng-src="{{ getFilename(selectedBug.Filename) }}" />
+	</div>
+</div>
+<!-- END -->

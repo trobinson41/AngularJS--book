@@ -7,11 +7,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var bugList = require("./bugList");
 var BugDropdown = (function () {
     function BugDropdown() {
+        this.selectedBug = bugList.bugs[0];
     }
     BugDropdown.prototype.getImage = function (name) {
         return "/bugImages/" + name + ".jpg";
+    };
+    BugDropdown.prototype.getBug = function (name) {
+        for (var i in bugList) {
+            if (name == bugList[i].CommonName)
+                return bugList[i];
+        }
+    };
+    ;
+    BugDropdown.prototype.onChange = function (bug) {
+        alert(bug.CommonName);
+        //this.selectedBug = this.getBug(name);
     };
     return BugDropdown;
 }());
