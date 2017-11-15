@@ -1,0 +1,58 @@
+<!-- ADD A BUG page -->
+<ng-form id="bugForm" onsubmit="addTheBug()">
+	<div>
+		<table style="width:500;padding:5px;border-spacing:5px">
+			<tr>
+				<td colspan="2" align="center"><h2>Add A Bug</h2></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Common Name:</label></td>
+				<td><input type="text" placeholder="Common name" ng-model="commonName2" required></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Class:</label></td>
+				<td><input type="text" placeholder="Class" ng-model="className2" required></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Order:</label></td>
+				<td><input type="text" placeholder="Order" ng-model="orderName2" required></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Family:</label></td>
+				<td><input type="text" placeholder="Family" ng-model="familyName2"></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Genus:</label></td>
+				<td><input type="text" placeholder="Genus" ng-model="genusName2"></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Species:</label></td>
+				<td><input type="text" placeholder="Species" ng-model="speciesName2"></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Description:</label></td>
+				<td><input type="text" placeholder="Description" ng-model="description2" required></td>
+			</tr>
+			<tr>
+				<td align="right"><label>Date of Observation:</label></td>
+				<td>
+					<input type="date" ng-model="DateOfObservation" required placeholder="yyyy-MM-dd"> 
+					<span style="color:red" ng-show="bugForm.DateOfObservation.$dirty && bugForm.DateOfObservation.$invalid">   
+						<span ng-show="bugForm.DateOfObservation.$error.required">Date of Observation is required.</span>  
+						<span ng-show="bugForm.DateOfObservation.$error.date">Not a Valid Date.</span>  
+					</span>
+				</td>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td align="right"><label>Filename for Image:</label></td>
+				<td><input type="text" placeholder="Filename" ng-model="filename2" required></td>
+			</tr>
+			<tr><td>&nbsp;</td></tr>
+			<tr>
+				<td align="center" colspan="2"><input type="submit" value="Add it to the list"></td>
+			</tr>
+		</table>
+	</div>
+</ng-form>
+<!-- END -->

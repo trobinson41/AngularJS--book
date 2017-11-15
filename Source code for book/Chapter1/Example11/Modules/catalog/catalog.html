@@ -1,0 +1,12 @@
+<!-- CATALOG page -->
+<div>
+	<table>
+		<tr>
+			<td align="center"><h2>Catalog</h2></td>
+		</tr>
+		<tr ng-repeat="item in bugArray">
+			<td><bug-entry a-bug="item" display-bug="displayBug(item.CommonName)" get-filename="getFilename(item.Filename)"></bug-entry></td>
+		</tr>
+	</table>
+</div>
+<!-- END -->

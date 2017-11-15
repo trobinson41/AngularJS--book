@@ -12,7 +12,7 @@ export class BugDropdown {
     }
 
     selectedBug = bugList.bugs[0];
-
+    
     getBug(name:string) {
         for (let i in bugList) {
             if (name == bugList[i].CommonName)

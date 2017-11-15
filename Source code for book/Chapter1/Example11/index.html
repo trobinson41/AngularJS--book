@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html ng-app="bugApp">
+<head>
+	<meta charset="utf-8" />
+	<title>Buggy Example 11</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-animate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.4/angular-route.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.13.3/ui-bootstrap-tpls.min.js"></script>
+	
+<!-- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+
+	<script type="text/javascript" src="bugList.js"></script>
+</head>
+<body ng-controller="BugController">
+	<table style="padding:5px;border-spacing:5px">
+		<tr>
+			<td>
+				<div>
+					<input type="button" ng-click="goToLookUp()" value="Look up a bug">&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="button" ng-click="goToCatalog()" value="Catalog">&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="button" ng-click="goToAdd()" value="Add a bug">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<div ng-view>
+			</td>
+		</tr>
+	</table>
+		
+	<script>
+	;(function() {
+		angular.module('bugApp', ['ngRoute'])
+			.config(['$routeProvider', 
+				function($routeProvider)  
+				{  
+					$routeProvider  
+					.when('/lookup',   
+						{  
+							templateUrl: 'Modules/lookup/lookup.html',  
+							//controller: 'BugController'  
+						})  
+					.when('/catalog',   
+						{  
+							templateUrl: 'Modules/catalog/catalog.html',  
+							//controller: 'BugController'  
+						})
+					.when('/addbug',
+						{
+							templateUrl: 'Modules/addbug/addbug.html',  
+							//controller: 'BugController' 
+						})
+					.when('/viewer',
+						{
+							templateUrl: 'Modules/viewer/viewer.html',  
+							controller: 'BugController' 
+						})
+					.otherwise  
+						({  
+							redirectTo: '/lookup',
+							//controller: 'BugController' 							
+						});  
+				}])
+			.controller('BugController', ['$scope', '$window', function ($scope, $window) {
+								
+				$scope.goToLookUp = function() {
+					$window.location = "#lookup";
+					$scope.currentPage = "Lookup";
+				};
+				
+				$scope.goToCatalog = function() {
+					$window.location = "#catalog";
+					$scope.currentPage = "Catalog";
+				}
+				
+				$scope.goToAdd = function() {
+					$window.location = "#addbug";
+					$scope.currentPage = "AddBug";
+				}
+				
+				$scope.bugArray = bugs;	// from bugList.js
+				
+				$scope.addTheBug = function() {
+				
+					$scope.bugArray.push(
+						{
+							CommonName: $scope.commonName2,
+							Class: $scope.className2,
+							Order: $scope.orderName2,
+							Family: $scope.familyName2,
+							Genus: $scope.genusName2,
+							Species: $scope.speciesName2,
+							Description: $scope.description2,
+							Filename: $scope.filename2
+						}
+					);
+					$window.alert("You added a bug!");
+				};
+				
+				$scope.setSelectedBug = function(selectedBug){
+					$scope.selectedBug = selectedBug;
+				}
+				
+				// Search bugArray for the bug with CommonName equal to name
+				$scope.getBug = function(name) {
+					for (i in $scope.bugArray){
+						if (name == $scope.bugArray[i].CommonName)
+							return $scope.bugArray[i];
+					}
+				};
+				
+				$scope.displayBug = function(name) {
+					$scope.selectedBug = $scope.getBug(name);
+					$window.location = "#viewer";
+					$scope.currentPage = "BugViewer";
+				}
+				
+				$scope.getFilename = function(filename) {
+					if (filename) {
+						return "images/" + filename + ".jpg";
+					} else {
+						return '';
+					}
+				}
+			}])
+			.directive('bugEntry', function() {
+				return {
+					restrict: 'E',
+					templateUrl: 'bug.html',
+					scope: {
+						bug: "=aBug",
+						displayBug: '&displayBug',
+						getFilename: '&getFilename'
+					},
+				};
+			});
+	}());
+	</script>
+</body>
+</html>
