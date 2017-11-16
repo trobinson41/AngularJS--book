@@ -56,7 +56,7 @@
 					.when('/viewer',
 						{
 							templateUrl: 'Modules/viewer/viewer.html',  
-							controller: 'BugController' 
+							//controller: 'BugController' 
 						})
 					.otherwise  
 						({  
@@ -83,18 +83,18 @@
 				
 				$scope.bugArray = bugs;	// from bugList.js
 				
-				$scope.addTheBug = function() {
-				
+				$scope.addTheBug = function(commonName, className, orderName, familyName, genusName, speciesName, description, filename) {
+								
 					$scope.bugArray.push(
 						{
-							CommonName: $scope.commonName2,
-							Class: $scope.className2,
-							Order: $scope.orderName2,
-							Family: $scope.familyName2,
-							Genus: $scope.genusName2,
-							Species: $scope.speciesName2,
-							Description: $scope.description2,
-							Filename: $scope.filename2
+							CommonName: commonName,
+							Class: className,
+							Order: orderName,
+							Family: familyName,
+							Genus: genusName,
+							Species: speciesName,
+							Description: description,
+							Filename: filename
 						}
 					);
 					$window.alert("You added a bug!");

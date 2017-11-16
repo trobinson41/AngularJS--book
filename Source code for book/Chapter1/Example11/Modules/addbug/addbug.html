@@ -1,5 +1,5 @@
 <!-- ADD A BUG page -->
-<ng-form name="bugForm" onsubmit="addTheBug()">
+<form name="addForm" ng-submit="addTheBug(commonName, className, orderName, familyName, genusName, speciesName, description, filename);" novalidate>
 	<div>
 		<table style="width:500;padding:5px;border-spacing:5px">
 			<tr>
@@ -7,64 +7,65 @@
 			</tr>
 			<tr>
 				<td align="right"><label>Common Name:</label></td>
-				<td><input name="commonName" ng-style="{'background-color': bugForm.commonName.$touched && bugForm.commonName.$invalid ? 'pink': 'white'}" type="text" placeholder="Common name" ng-model="commonName2" required></td>
-				<td style="color:red" ng-show="bugForm.commonName.$touched && bugForm.commonName.$invalid">
+				<td><input name="commonName" placeholder="Common name" ng-model="commonName" required ng-style="{'background-color': addForm.commonName.$touched && addForm.commonName.$invalid ? 'pink': 'white'}" type="text"></td>
+				<td style="color:red" ng-show="addForm.commonName.$touched && addForm.commonName.$invalid">
 					Common Name is required.
 				</td>
 			</tr>
 			<tr>
 				<td align="right"><label>Class:</label></td>
-				<td><input type="text" name="className" ng-style="{'background-color': bugForm.className.$touched && bugForm.className.$invalid ? 'pink': 'white'}" placeholder="Class" ng-model="className2" required></td>
-				<td style="color:red" ng-show="bugForm.className.$touched && bugForm.className.$invalid">
+				<td><input type="text" name="className" placeholder="Class" ng-model="className" required ng-style="{'background-color': addForm.className.$touched && addForm.className.$invalid ? 'pink': 'white'}"></td>
+				<td style="color:red" ng-show="addForm.className.$touched && addForm.className.$invalid">
 					Class is required.
 				</td>
 			</tr>
 			<tr>
 				<td align="right"><label>Order:</label></td>
-				<td><input type="text" name="orderName" ng-style="{'background-color': bugForm.orderName.$touched && bugForm.orderName.$invalid ? 'pink': 'white'}" placeholder="Order" ng-model="orderName2" required></td>
-				<td style="color:red" ng-show="bugForm.orderName.$touched && bugForm.orderName.$invalid">
+				<td><input type="text" name="orderName" placeholder="Order" ng-model="orderName" required ng-style="{'background-color': addForm.orderName.$touched && addForm.orderName.$invalid ? 'pink': 'white'}"></td>
+				<td style="color:red" ng-show="addForm.orderName.$touched && addForm.orderName.$invalid">
 					Order is required.
 				</td>
 			</tr>
 			<tr>
 				<td align="right"><label>Family:</label></td>
-				<td><input type="text" placeholder="Family" ng-model="familyName2"></td>
+				<td><input type="text" placeholder="Family" ng-model="familyName"></td>
 			</tr>
 			<tr>
 				<td align="right"><label>Genus:</label></td>
-				<td><input type="text" placeholder="Genus" ng-model="genusName2"></td>
+				<td><input type="text" placeholder="Genus" ng-model="genusName"></td>
 			</tr>
 			<tr>
 				<td align="right"><label>Species:</label></td>
-				<td><input type="text" placeholder="Species" ng-model="speciesName2"></td>
+				<td><input type="text" placeholder="Species" ng-model="speciesName"></td>
 			</tr>
 			<tr>
 				<td align="right"><label>Description:</label></td>
-				<td><input type="text" name="description" ng-style="{'background-color': bugForm.description.$touched && bugForm.description.$invalid ? 'pink': 'white'}" placeholder="Description" ng-model="description2" required></td>
-				<td style="color:red" ng-show="bugForm.description.$touched && bugForm.description.$invalid">
+				<td><input type="text" name="description" placeholder="Description" ng-model="description" required ng-style="{'background-color': addForm.description.$touched && addForm.description.$invalid ? 'pink': 'white'}"></td>
+				<td style="color:red" ng-show="addForm.description.$touched && addForm.description.$invalid">
 					Description is required.
 				</td>
 			</tr>
 			<tr>
 				<td align="right"><label>Date of Observation:</label></td>
-				<td><input type="date" style="width:170px" name="dateOfObservation" ng-style="{'background-color': bugForm.dateOfObservation.$touched && bugForm.dateOfObservation.$error.required ? 'pink': 'white'}" ng-model="DateOfObservation" placeholder="MM-dd-yyyy" required></td>
-				<td style="color:red" ng-show="bugForm.dateOfObservation.$touched && bugForm.dateOfObservation.$error.required">
+				<td><input type="date" style="width:170px" name="dateOfObservation" ng-model="DateOfObservation" required ng-style="{'background-color': addForm.dateOfObservation.$touched && addForm.dateOfObservation.$invalid ? 'pink': 'white'}"></td>
+				<td style="color:red" ng-show="addForm.dateOfObservation.$touched && addForm.dateOfObservation.$error.required">
 					Date of Observation is required.  
 				</td>
 			</tr>
 			<tr><td>&nbsp;</td></tr>
 			<tr>
 				<td align="right"><label>Filename for Image:</label></td>
-				<td><input type="text" name="filename" ng-style="{'background-color': bugForm.filename.$touched && bugForm.filename.$invalid ? 'pink': 'white'}" placeholder="Filename" ng-model="filename2" required></td>
-				<td style="color:red" ng-show="bugForm.filename.$touched && bugForm.filename.$invalid">
+				<td><input type="text" name="filename" placeholder="Filename" ng-model="filename" required ng-style="{'background-color': addForm.filename.$touched && addForm.filename.$invalid ? 'pink': 'white'}"></td>
+				<td style="color:red" ng-show="addForm.filename.$touched && addForm.filename.$invalid">
 					Filename is required.
 				</td>
 			</tr>
 			<tr><td>&nbsp;</td></tr>
 			<tr>
-				<td align="center" colspan="2"><input type="submit" value="Add it to the list"></td>
+				<td align="center" colspan="2">
+				<input type="submit" ng-disabled="addForm.$invalid" value="Add it to the list"></td>
 			</tr>
 		</table>
 	</div>
-</ng-form>
+</form>
 <!-- END -->
