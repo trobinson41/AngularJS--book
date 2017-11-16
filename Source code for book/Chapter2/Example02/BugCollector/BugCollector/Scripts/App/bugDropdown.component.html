@@ -1,20 +1,14 @@
-﻿<script language="javascript">
-    function getImage(name) {
-        //return "./images/" + name + ".jpg";
-        return "";
-    }
-</script>
-<div>
+﻿<div>
     <h1>Pick a bug. Any bug...</h1>
-    <select [value]="selectedName" (change)="selectedName = $event.target.value; imgSrc = '/bugImages/'+$event.target.value+'.jpg'">
+    <select [value]="selectedName" (change)="selectedName = $event.target.value">
         <option></option>
-        <option>Honey Bee</option>
+        <option>Longbodied Cellar Spider</option>
         <option>Cranefly</option>
         <option>Scorpion</option>
         <option>Pregnant Scorpion</option>
     </select>
     <div [hidden]="!selectedName">
         <h3>You selected: {{ selectedName }}.</h3>
-        <img [src]="imgSrc">
+        <img [src]="getImage(selectedName)">
     </div>
 </div>
