@@ -189,4 +189,3 @@ C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example
 C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example02\BugCollector\BugCollector\bin\BugCollector.dll.config
 C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example02\BugCollector\BugCollector\bin\BugCollector.dll
 C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example02\BugCollector\BugCollector\bin\BugCollector.pdb
-C:\Users\trobinson\Desktop\AngularJS- book\Source code for book\Chapter2\Example02\BugCollector\BugCollector\obj\Debug\BugCollector.csprojResolveAssemblyReference.cache

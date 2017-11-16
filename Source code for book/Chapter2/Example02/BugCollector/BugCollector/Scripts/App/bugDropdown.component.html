@@ -1,14 +1,11 @@
 ﻿<div>
     <h1>Pick a bug. Any bug...</h1>
-    <select [value]="selectedName" (change)="selectedName = $event.target.value">
-        <option></option>
-        <option>Longbodied Cellar Spider</option>
-        <option>Cranefly</option>
-        <option>Scorpion</option>
-        <option>Pregnant Scorpion</option>
+    <select [value]="selectedBug" (change)="onChange(event.target.value)">
+        <option *ngFor="let bug in bugList" [value]="bug">{{bug.CommonName}}</option>
     </select>
-    <div [hidden]="!selectedName">
-        <h3>You selected: {{ selectedName }}.</h3>
-        <img [src]="getImage(selectedName)">
+    {{selectedBug}}
+    <div [hidden]="!(selectedBug==null)">
+        <h3>You selected: {{selectedBug.CommonName}}</h3>
+        <img [src]="getImage(selectedBug.CommonName)">
     </div>
 </div>

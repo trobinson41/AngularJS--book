@@ -167,11 +167,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\App\bug.html" />
     <Content Include="Scripts\App\bugDropdown.component.html" />
-    <Content Include="bugImages\Cranefly.jpg" />
-    <Content Include="bugImages\Honey Bee.JPG" />
-    <Content Include="bugImages\Pregnant Scorpion.JPG" />
-    <Content Include="bugImages\Scorpion.jpg" />
     <Content Include="Scripts\systemjs.config.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -209,6 +206,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="bugImages\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -228,6 +226,7 @@
     <TypeScriptCompile Include="Scripts\App\app.component.ts" />
     <TypeScriptCompile Include="Scripts\App\app.module.ts" />
     <TypeScriptCompile Include="Scripts\App\bugDropdown.component.ts" />
+    <TypeScriptCompile Include="Scripts\App\bugList.ts" />
     <TypeScriptCompile Include="Scripts\App\main.ts" />
   </ItemGroup>
   <ItemGroup>
