@@ -1,0 +1,51 @@
+<!-- HOME PAGE (PICK A BUG) -->
+<div>
+    <table>
+        <tr>
+            <td><h2>Pick a bug. Any bug...</h2></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <select ng-model="selectedBug" ng-options="bug as bug.CommonName for bug in bugArray" ng-click="setSelectedBug(selectedBug)">
+                    <option value=""></option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <div ng-show="selectedBug">
+        <table>
+            <tr>
+                <td colspan="2" align="center"><h3>You selected: {{ selectedBug.CommonName }}</h3></td>
+            </tr>
+            <tr>
+                <td align="right">Class:</td>
+                <td>{{ selectedBug.Class }}</td>
+            </tr>
+            <tr>
+                <td align="right">Family:</td>
+                <td>{{ selectedBug.Order }}</td>
+            </tr>
+            <tr>
+                <td align="right">Order:</td>
+                <td>{{ selectedBug.Family }}</td>
+            </tr>
+            <tr>
+                <td align="right">Genus:</td>
+                <td>{{ selectedBug.Genus }}</td>
+            </tr>
+            <tr>
+                <td align="right">Species:</td>
+                <td>{{ selectedBug.Species }}</td>
+            </tr>
+        </table><br />
+        <table style="width:500px">
+            <tr>
+                <td colspan="2">{{ selectedBug.Description }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><img ng-src="{{ getFilename(selectedBug.Filename) }}" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- END -->
