@@ -1,0 +1,28 @@
+<!-- CATALOG page -->
+<div>
+    <table>
+        <tr>
+            <td align="center"><h2>Catalog</h2></td>
+        </tr>
+        <tr *ngFor="let bug of bugs">
+            <td>
+                <table>
+                    <tr>
+                        <td [routerLinkActive]="['link-active']">
+                            <a [routerLink]="['/viewer']">
+                                <h2>{{ bug.CommonName }}</h2>
+                            </a>
+                        </td>
+                        <tr>
+                        <td [routerLinkActive]="['link-active']">
+                            <a [routerLink]="['/viewer']">
+                                <img [src]="getFilename(bug.Filename)" width="300" />
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- END -->

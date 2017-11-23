@@ -3,10 +3,10 @@ import { DataService } from '../../data.service';
 import { Bug } from '../../shared/Bug';
 
 @Component({
-    selector: 'home',
-    templateUrl: './home.component.html'
+    selector: 'catalog',
+    templateUrl: './catalog.component.html'
 })
-export class HomeComponent implements OnInit {
+export class CatalogComponent implements OnInit {
 
     bugs: Bug[] = [];
     selectedBug: Bug;
@@ -18,6 +18,12 @@ export class HomeComponent implements OnInit {
         this._data.changeBug(this.bugs);
     }
 
+    //displayBug() {
+    //    this.selectedBug = this.getBug(name);
+    //    $window.location = "#viewer";
+    //    $scope.currentPage = "BugViewer";
+    //}
+
     getFilename(name: string): string {
         return "../../bugImages/" + name + ".jpg";
     }
@@ -27,12 +33,6 @@ export class HomeComponent implements OnInit {
             if (name == i.CommonName)
                 return i;
         }
-        return new Bug("","","","","","","","");
+        return new Bug("", "", "", "", "", "", "", "");
     };
-
-    setSelectedBug(name: string) {
-        this.selectedBug = this.getBug(name);
-        if (this.selectedBug.CommonName == "")
-            delete this.selectedBug;
-    }
 }

@@ -1,20 +1,20 @@
 /// <reference path="../../../../node_modules/@types/jasmine/index.d.ts" />
 import { assert } from 'chai';
-import { CounterComponent } from './counter.component';
+import { CatalogComponent } from './catalog.component';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 
-let fixture: ComponentFixture<CounterComponent>;
+let fixture: ComponentFixture<CatalogComponent>;
 
-describe('Counter component', () => {
+describe('Catalog component', () => {
     beforeEach(() => {
-        TestBed.configureTestingModule({ declarations: [CounterComponent] });
-        fixture = TestBed.createComponent(CounterComponent);
+        TestBed.configureTestingModule({ declarations: [CatalogComponent] });
+        fixture = TestBed.createComponent(CatalogComponent);
         fixture.detectChanges();
     });
 
     it('should display a title', async(() => {
         const titleText = fixture.nativeElement.querySelector('h1').textContent;
-        expect(titleText).toEqual('Counter');
+        expect(titleText).toEqual('Catalog');
     }));
 
     it('should start with count 0, then increments by 1 when clicked', async(() => {

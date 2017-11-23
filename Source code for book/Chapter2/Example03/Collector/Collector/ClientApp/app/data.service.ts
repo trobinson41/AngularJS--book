@@ -7,14 +7,14 @@ import { Bug } from './shared/Bug';
 export class DataService {
 
     bug1: Bug = new Bug(
-        "Mosquito Pupa",
-        "Insecta",
-        "Diptera",
-        "Culicidae",
-        "",
-        "",
-        "Mosquito larva are aquatic. After the larval stage, the mosquito becomes a pupa, which is also aquatic, but does not feed. The oddly shaped \"horns\" on the pupa pictured here are the respiratory trumpets, which the pupa uses to breathe air at the surface of the water. Eventually, the back of the pupa will split open and the adult mosquito will emerge.",
-        "mosquito pupa"
+        /* CommonName  */ "Mosquito Pupa",
+        /* Class       */ "Insecta",
+        /* Order       */ "Diptera",
+        /* Family      */ "Culicidae",
+        /* Genus       */ "",
+        /* Species     */ "",
+        /* Description */ "Mosquito larva are aquatic. After the larval stage, the mosquito becomes a pupa, which is also aquatic, but does not feed. The oddly shaped \"horns\" on the pupa pictured here are the respiratory trumpets, which the pupa uses to breathe air at the surface of the water. Eventually, the back of the pupa will split open and the adult mosquito will emerge.",
+        /* Filename    */ "mosquito pupa"
     );
 
     bug2: Bug = new Bug(
