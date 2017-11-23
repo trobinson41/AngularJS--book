@@ -8,31 +8,30 @@ import { Bug } from '../../shared/Bug';
 })
 export class HomeComponent implements OnInit {
 
-    bugs: Bug[];
+    bugs: Bug[] = [];
+    selectedBug: Bug;
 
     constructor(private _data: DataService) { }
 
     ngOnInit() {
         this._data.bug.subscribe(res => this.bugs = res);
-        //this.itemCount = this.goals.length;
+        this.selectedBug = this.bugs[0];
         this._data.changeBug(this.bugs);
     }
 
-    getImage(name: string): string {
-        return "/bugImages/" + name + ".jpg";
+    getFilename(name: string): string {
+        return "../../bugImages/" + name + ".jpg";
     }
 
-    selectedBug = this.bugs[0];
-
     getBug(name: string): Bug {
-        for (let i in this.bugs) {
-            if (name == this.bugs[i].CommonName)
-                return this.bugs[i];
+        for (let i of this.bugs) {
+            if (name == i.CommonName)
+                return i;
         }
+        return new Bug("","","","","","","","");
     };
 
-    onChange(name: string) {
-        //alert(bug.CommonName);
+    setSelectedBug(name: string) {
         this.selectedBug = this.getBug(name);
     }
 }

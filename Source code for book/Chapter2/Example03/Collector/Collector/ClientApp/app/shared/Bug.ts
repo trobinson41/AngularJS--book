@@ -1,14 +1,24 @@
 ﻿export class Bug {
-    CommonName: string
-    Class: string
-    Order: string
-    Family: string
-    Genus: string
-    Species: string
-    Description: string
-    Filename: string
 
-    constructor(commonName, className, order, family, genus, species, description, filename) {
+    CommonName: string;
+    Class: string;
+    Order: string;
+    Family: string;
+    Genus: string;
+    Species: string;
+    Description: string;
+    Filename: string;
+
+    constructor(
+        commonName: string,
+        className: string,
+        order: string,
+        family: string,
+        genus: string,
+        species: string,
+        description: string,
+        filename: string
+    ) {
         this.CommonName = commonName;
         this.Class = className;
         this.Order = order;

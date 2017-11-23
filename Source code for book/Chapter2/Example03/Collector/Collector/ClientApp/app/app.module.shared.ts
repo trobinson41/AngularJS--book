@@ -10,7 +10,7 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
-import { Bug } from './shared/Bug';
+//import { Bug } from './shared/Bug';
 
 @NgModule({
     declarations: [
@@ -18,8 +18,7 @@ import { Bug } from './shared/Bug';
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
-        HomeComponent,
-        Bug
+        HomeComponent
     ],
     providers: [DataService],
     imports: [
