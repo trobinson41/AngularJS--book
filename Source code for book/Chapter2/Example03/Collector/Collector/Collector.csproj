@@ -23,6 +23,7 @@
   <ItemGroup>
     <None Remove="ClientApp\app\Bug.ts" />
     <None Remove="ClientApp\app\bugList.ts" />
+    <None Remove="ClientApp\app\components\home\Amphipoda_Hyalella.JPG" />
     <None Remove="ClientApp\app\data.service.ts" />
   </ItemGroup>
 

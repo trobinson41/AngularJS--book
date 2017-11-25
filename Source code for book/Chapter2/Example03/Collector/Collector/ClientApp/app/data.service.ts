@@ -25,7 +25,7 @@ export class DataService {
         "Hyalella",
         "",
         "Amphipods are crustaceans. Most species live in a marine environment, but the one pictured here is a freshwater species. It was extremely abundant in the stream where I found it, but most individuals are very tiny -- barely visible, in fact -- so they usually go unnoticed. This was one of the larger ones, maybe a quarter of an inch long. It probably eats decaying vegetation.",
-        "Amphipoda - Hyalella"
+        "Amphipoda_Hyalella"
     );
 
     bug3: Bug = new Bug(

@@ -11,17 +11,16 @@ import { Http } from '@angular/http';
 export class ViewerComponent implements OnInit {
 
     bugs: Bug[] = [];
-    selectedBug: Bug;
+    selectedBug: Bug = new Bug("", "", "", "", "", "", "", "");
 
     constructor(private _data: DataService) { }
 
     ngOnInit() {
         this._data.bug.subscribe(res => this.bugs = res);
-        this.selectedBug = this.bugs[0];
         this._data.changeBug(this.bugs);
     }
 
-    getFilename(name: string): string {
+    getFilename(name: string) {
         return "../../bugImages/" + name + ".jpg";
     }
 
@@ -35,23 +34,5 @@ export class ViewerComponent implements OnInit {
 
     setSelectedBug(name: string) {
         this.selectedBug = this.getBug(name);
-        if (this.selectedBug.CommonName == "")
-            delete this.selectedBug;
     }
 }
-//export class FetchDataComponent {
-//    public forecasts: WeatherForecast[];
-
-//    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-//        http.get(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-//            this.forecasts = result.json() as WeatherForecast[];
-//        }, error => console.error(error));
-//    }
-//}
-
-//interface WeatherForecast {
-//    dateFormatted: string;
-//    temperatureC: number;
-//    temperatureF: number;
-//    summary: string;
-//}

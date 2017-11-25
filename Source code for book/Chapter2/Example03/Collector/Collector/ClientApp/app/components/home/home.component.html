@@ -13,7 +13,7 @@
             </td>
         </tr>
     </table>
-    <div [hidden]="!selectedBug">
+    <div [hidden]="selectedBug.CommonName == ''">
         <table>
             <tr>
                 <td colspan="2"><h3>You selected: {{ selectedBug.CommonName }}</h3></td>

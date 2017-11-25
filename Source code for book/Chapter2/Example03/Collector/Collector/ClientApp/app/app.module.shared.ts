@@ -8,16 +8,16 @@ import { DataService } from './data.service';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
-import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
-import { CounterComponent } from './components/counter/counter.component';
+import { CatalogComponent } from './components/catalog/catalog.component';
+import { ViewerComponent } from './components/viewer/viewer.component';
 //import { Bug } from './shared/Bug';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
-        CounterComponent,
-        FetchDataComponent,
+        ViewerComponent,
+        CatalogComponent,
         HomeComponent
     ],
     providers: [DataService],
@@ -28,8 +28,8 @@ import { CounterComponent } from './components/counter/counter.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
-            { path: 'counter', component: CounterComponent },
-            { path: 'fetch-data', component: FetchDataComponent },
+            { path: 'viewer', component: ViewerComponent },
+            { path: 'catalog', component: CatalogComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

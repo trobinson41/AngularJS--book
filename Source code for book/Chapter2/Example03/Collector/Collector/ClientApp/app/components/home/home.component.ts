@@ -9,7 +9,7 @@ import { Bug } from '../../shared/Bug';
 export class HomeComponent implements OnInit {
 
     bugs: Bug[] = [];
-    selectedBug: Bug;
+    selectedBug: Bug = new Bug("", "", "", "", "", "", "", "");
 
     constructor(private _data: DataService) { }
 
@@ -18,8 +18,9 @@ export class HomeComponent implements OnInit {
         this._data.changeBug(this.bugs);
     }
 
-    getFilename(name: string): string {
+    getFilename(name: string) {
         return "../../bugImages/" + name + ".jpg";
+        //return "bugImages/Amphipoda_Hyalella.JPG";
     }
 
     getBug(name: string): Bug {
@@ -32,7 +33,5 @@ export class HomeComponent implements OnInit {
 
     setSelectedBug(name: string) {
         this.selectedBug = this.getBug(name);
-        if (this.selectedBug.CommonName == "")
-            delete this.selectedBug;
     }
 }
