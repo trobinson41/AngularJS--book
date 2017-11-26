@@ -18,9 +18,8 @@ export class HomeComponent implements OnInit {
         this._data.changeBug(this.bugs);
     }
 
-    getFilename(name: string) {
-        return "../../bugImages/" + name + ".jpg";
-        //return "bugImages/Amphipoda_Hyalella.JPG";
+    getFilename(name: string): string {
+        return "../../../assets/bugImages/" + name + ".jpg";
     }
 
     getBug(name: string): Bug {
