@@ -1,0 +1,55 @@
+<!-- HOME PAGE (PICK A BUG) -->
+<div>
+    <table>
+        <tr>
+            <td><h2>Pick a bug. Any bug...</h2></td>
+        </tr>
+        <tr>
+            <td align="center">
+                <select [(ngModel)]="selectedBug" (change)="setSelectedBug(selectedBug)">
+                    <option value=""></option>
+                    <option *ngFor="let bug of bugs" [value]="bug.CommonName">{{bug.CommonName}}</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+    <div [hidden]="selectedBug.CommonName == ''">
+        <table>
+            <tr>
+                <td colspan="2"><h3>You selected: {{ selectedBug.CommonName }}</h3></td>
+            </tr>
+            <tr>
+                <td align="right">Class:&nbsp;</td>
+                <td>{{ selectedBug.Class }}</td>
+            </tr>
+            <tr>
+                <td align="right">Order:&nbsp;</td>
+                <td>{{ selectedBug.Order }}</td>
+            </tr>
+            <tr>
+                <td align="right">Family:&nbsp;</td>
+                <td>{{ selectedBug.Family }}</td>
+            </tr>
+            <tr>
+                <td align="right">Genus:&nbsp;</td>
+                <td>{{ selectedBug.Genus }}</td>
+            </tr>
+            <tr>
+                <td align="right">Species:&nbsp;</td>
+                <td>{{ selectedBug.Species }}</td>
+            </tr>
+        </table><br />
+        <table style="width:500px">
+            <tr>
+                <td colspan="2">{{ selectedBug.Description }}</td>
+            </tr>
+            <tr>
+                <td colspan="2"><img src="../../../assets/bugImages/AmphipodaHyalella.JPG" /></td>
+            </tr>
+            <tr>
+                <td colspan="2"><img [src]="getFilename(selectedBug.Filename)" /></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<!-- END -->
